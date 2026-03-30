@@ -1,5 +1,5 @@
 export const API_ROOT = 'https://www.reddit.com';
-const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(API_ROOT)}`;
+const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(API_ROOT)}`;
 
 export const getSubredditPosts = async (subreddit: string) : Promise<RedditPost[]> => {
   const response = await fetch(`${proxyUrl}${subreddit}.json`);
