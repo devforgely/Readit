@@ -1,73 +1,94 @@
-# React + TypeScript + Vite
+# Readit Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Reddit client built with React, TypeScript, Redux Toolkit, and Vite.
 
-Currently, two official plugins are available:
+This app lets users browse subreddit posts, search posts by title, and read comment threads in a clean two-column layout.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Layout
 
-## React Compiler
+![Readit Screen](./images/readit_mainscreen.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+- React 19
+- TypeScript 5
+- Redux Toolkit + React Redux
+- Vite
+- Vitest + Testing Library + JSDOM
+- ESLint
+- react-icons
+- react-loading-skeleton
+- react-markdown
+- moment
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Browse hot posts from selected subreddits.
+- Fetch and display subreddit list in a dedicated sidebar panel.
+- Search posts by title using a global Redux-managed search term.
+- Expand and collapse comments per post.
+- Render comment body markdown with react-markdown.
+- Relative time formatting for posts and comments.
+- Local post voting UI state (upvote/downvote toggle).
+- Loading skeletons for posts and comments.
+- Error states with retry actions for failed post and comment requests.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js 18+
+- npm 9+
+
+### Install
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Run in Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+### Test
+
+```bash
+npm run test
+```
+
+## Project Structure
+
+```text
+src/
+	api/            # Reddit API helpers
+	components/     # Shared presentational components
+	features/       # Feature-focused UI modules
+	store/          # Redux store and slices
+	utils/          # Utility functions
+```
+
+## Future Work
+
+- Add pagination or infinite scrolling for post feeds.
+- Add subreddit favorites and persistence (local storage).
+- Add sorting controls (hot, new, top).
+- Improve accessibility (keyboard navigation, focus states, ARIA refinements).
+- Add robust image/media handling for non-image post types.
+- Add integration tests for async Redux flows and key user journeys.
+- Add error boundaries and improved offline/network feedback.
+- Add dark mode and theme customization.
+
