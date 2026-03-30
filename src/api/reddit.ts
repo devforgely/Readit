@@ -1,4 +1,4 @@
-export const API_ROOT = '/reddit-api';
+export const API_ROOT = 'https://www.reddit.com';
 
 export const getSubredditPosts = async (subreddit: string) : Promise<RedditPost[]> => {
   const response = await fetch(`${API_ROOT}${subreddit}.json`);
