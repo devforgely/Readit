@@ -13,7 +13,7 @@ const Comment = ({ comment }: { comment: RedditComment }) => {
           {moment.unix(comment.created_utc).fromNow()}
         </p>
       </div>
-      <ReactMarkdown source={comment.body} />
+      <ReactMarkdown children={comment.body} />
     </div>
   );
 };

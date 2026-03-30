@@ -104,7 +104,7 @@ const Post = ({ post, onToggleComments }: { post: RedditPostView, onToggleCommen
               {renderUpVote()}
             </button>
             <p className={`post-votes-value ${getVoteType()}`}>
-              {shortenNumber(post.ups, 1)}
+              {shortenNumber(post.ups + voteValue, 1)}
             </p>
             <button
               type="button"
