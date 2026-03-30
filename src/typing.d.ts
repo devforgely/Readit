@@ -76,3 +76,10 @@ type RedditComment = {
   distinguished: "moderator" | "admin" | null;
   is_submitter: boolean;   // True if the commenter is the original poster (OP)
 }
+
+type RedditPostView = RedditPost & {
+  showingComments: boolean;
+  loadingComments: boolean;
+  errorComments: boolean;
+  comments: RedditComment[];
+}
