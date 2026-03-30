@@ -42,6 +42,7 @@ type RedditSubreddit = {
   over18: boolean;
   subreddit_type: "public" | "private" | "restricted";
   created_utc: number;
+  primary_color: string;
 }
 
 type RedditComment = {
